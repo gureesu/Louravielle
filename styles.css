@@ -7,7 +7,7 @@
 
 :root {
   --primary-color: #bebef4;
-  --secondary-color: #8874ad;
+  --secondary-color: #615e97;
   --hover-bg: #664fa3;
   --hover-text: rgb(250, 205, 82);
   --primary-text: #63569f;
@@ -49,13 +49,14 @@ nav ul.nav-links li a {
   padding: 10px;
   text-transform: uppercase;
   font-weight: 600;
-  transition: 200ms ease-in-out;
+  transition: 400ms ease-in-out;
+  border-radius: 20px;
 }
 
 nav ul.nav-links li a:hover {
   background-color: var(--hover-bg);
   color: var(--hover-text);
-  border-radius: 5px;
+  border-radius: 20px;
 }
 
 .logo img {
@@ -102,7 +103,7 @@ nav ul.nav-links li a:hover {
     display: inline-block;
     width: 100%;
     text-align: center;
-    transition: 100ms ease-in-out;
+    border-radius: 0px;
   }
 
   nav ul.nav-links li a:hover {
