@@ -7,6 +7,7 @@
 
 :root {
   --primary-color: #bebef4;
+  --secondary-color: #615e97;
   --hover-bg: #664fa3;
   --hover-text: rgb(250, 205, 82);
   --primary-text: #63569f;
@@ -212,5 +213,5 @@ nav ul.nav-links li a:hover {
   justify-content: center;
   margin-top: -50px;
   height: 60vh;
-  background-color: var(--hover-bg);
+  background-color: var(--secondary-color);
 }
