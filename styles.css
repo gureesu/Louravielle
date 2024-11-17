@@ -8,9 +8,13 @@
 :root {
   --primary-color: #bebef4;
   --secondary-color: #615e97;
-  --hover-bg: #664fa3;
-  --hover-text: rgb(250, 205, 82);
+  --tertiary-color: #39385e;
+
+  --hover-bg: #615e97;
+  --hover-text: #fdd248;
+
   --primary-text: #63569f;
+  --secondary-text: #eeebfa;
 }
 
 body {
@@ -25,11 +29,11 @@ nav {
   top: 0;
   z-index: 3;
   width: 100%;
-  height: 120px;
+  height: 140px;
   transition: transform 0.3s ease-in-out;
   --mask:
-    radial-gradient(26.91px at 50% calc(100% - 38px),#000 99%,#0000 101%) calc(50% - 40px) 0/80px 100%,
-    radial-gradient(26.91px at 50% calc(100% + 18px),#0000 99%,#000 101%) 50% calc(100% - 20px)/80px 100% repeat-x;
+    radial-gradient(37.14px at 50% calc(100% - 52.2px),#000 99%,#0000 101%) calc(50% - 58px) 0/116px 100%,
+    radial-gradient(37.14px at 50% calc(100% + 23.2px),#0000 99%,#000 101%) 50% calc(100% - 29px)/116px 100% repeat-x;
   -webkit-mask: var(--mask);
           mask: var(--mask);
 
@@ -183,15 +187,9 @@ nav ul.nav-links li a:hover {
 /* banner */
 .banner {
   position: relative;
-  height: 50vh;
+  height: 70vh;
   overflow: hidden;
-  margin-top: -30px;
-
-  --mask:
-    radial-gradient(26.91px at 50% calc(100% - 38px),#000 99%,#0000 101%) calc(50% - 40px) 0/80px 100%,
-    radial-gradient(26.91px at 50% calc(100% + 18px),#0000 99%,#000 101%) 50% calc(100% - 20px)/80px 100% repeat-x;
-  -webkit-mask: var(--mask);
-          mask: var(--mask);
+  margin-top: -45px;
 }
 
 #hero-video {
@@ -208,11 +206,65 @@ nav ul.nav-links li a:hover {
 
 
 /* catalog */
+
 .catalog {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-end;
   margin-top: -50px;
-  height: 60vh;
+  height: 80vh;
   background-color: var(--secondary-color);
+  margin-left: -115px;
+
+  --mask:
+    radial-gradient(37.14px at 50% 52.2px,#000 99%,#0000 101%) calc(50% - 58px) 0/116px 100%,
+    radial-gradient(37.14px at 50% -23.2px,#0000 99%,#000 101%) 50% 29px/116px 100% repeat-x;
+  -webkit-mask: var(--mask);
+          mask: var(--mask);
+     
+}
+
+
+/* moving div */
+.iso-marquee {
+  padding: 1rem 0;
+  font-size: 8vw;
+  overflow: hidden;
+  background-color: var(--tertiary-color);
+}
+
+.iso-marquee--long {
+  font-size: 1em;
+}
+
+.iso-marquee span {
+  display: inline-block;
+  white-space: nowrap;
+  color: var(--secondary-text);
+  text-transform: uppercase;
+  letter-spacing: 2.6px;
+  font-weight: 600;
+  width: var(--tw);
+  text-shadow: var(--tw) 0 currentColor, calc(var(--tw) * 2) 0 currentColor,
+               calc(var(--tw) * 3) 0 currentColor, calc(var(--tw) * 4) 0 currentColor;
+  will-change: transform;
+  animation: iso-marquee var(--ad) linear infinite;
+  animation-play-state: play;
+}
+
+@keyframes iso-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Reduce motion for users with motion sensitivity */
+@media (prefers-reduced-motion: reduce) {
+  .iso-marquee span {
+      animation: none;
+      text-shadow: none;
+      width: auto;
+      display: block;
+      line-height: 1.5;
+      text-align: center;
+      white-space: normal;
+  }
 }

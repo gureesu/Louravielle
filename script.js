@@ -31,13 +31,13 @@ function toggleHamburgerMenu() {
   navLinks.classList.toggle('active');
   navLinks.classList.toggle('expanded');
 
-  navbar.style.height = navLinks.classList.contains('expanded') ? '295px' : '120px';
+  navbar.style.height = navLinks.classList.contains('expanded') ? '300px' : '140px';
 }
 
 // Function to handle window resize events
 function handleResize() {
   if (window.innerWidth > 700) {
-    navbar.style.height = '120px';
+    navbar.style.height = '140px';
     navLinks.classList.remove('expanded', 'active');
     hamburger.classList.remove('active');
   }
