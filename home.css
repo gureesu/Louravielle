@@ -7,7 +7,7 @@
 
 :root {
   --primary-color: #bebef4;
-  --secondary-color: #615e97;
+  --secondary-color: #6662ab;
   --tertiary-color: #39385e;
 
   --hover-bg: #615e97;
@@ -187,14 +187,14 @@ nav ul.nav-links li a:hover {
 /* banner */
 .banner {
   position: relative;
-  height: 70vh;
+  height: 80vh;
   overflow: hidden;
   margin-top: -45px;
 }
 
 #hero-video {
   position: absolute;
-  top: 0%;
+  top: 25%;
   left: 50%;
   min-width: 100%;
   min-height: 100%;
