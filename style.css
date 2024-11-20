@@ -36,7 +36,7 @@ nav {
     radial-gradient(37.14px at 50% calc(100% + 23.2px),#0000 99%,#000 101%) 50% calc(100% - 29px)/116px 100% repeat-x;
   -webkit-mask: var(--mask);
           mask: var(--mask);
-
+  user-select: none;
 }
 
 nav ul.nav-links {
@@ -263,6 +263,14 @@ nav ul.nav-links li a:hover {
   text-align: center;
   border-radius: 8px;
   box-sizing: border-box;
+  background-color: var(--primary-color);
+  transition: 0.3s ease-in-out;
+
+}
+
+.card:hover {
+  transform: scale(1.03);
+  background-color: var(--hover-text);
 }
 
 .card img {
@@ -281,7 +289,21 @@ nav ul.nav-links li a:hover {
   border-radius: inherit;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  background-color: var(--primary-color);
+  padding: 1.1em 1.5em;
+  background-color: inherit;
+}
+
+.card-container h2 {
+  color: var(--tertiary-color);
+  text-transform: uppercase;
+  font-size: 1.3em;
+  margin-bottom: 0.3em;
+}
+
+.card-container p {
+  color: var(--tertiary-color);
+  font-size: 1em;
+  line-height: 1.4em;
 }
 
 /* Switch to 2 cards per row on smaller screens */
