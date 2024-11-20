@@ -24,7 +24,7 @@ body {
 /* Basic styles for the navbar */
 nav {
   background-color: var(--primary-color);
-  padding: 0 100px;
+  padding: 0 250px;
   position: sticky;
   top: 0;
   z-index: 3;
@@ -187,9 +187,10 @@ nav ul.nav-links li a:hover {
 /* banner */
 .banner {
   position: relative;
-  height: 80vh;
+  height: 66vh;
   overflow: hidden;
   margin-top: -45px;
+  
 }
 
 #hero-video {
@@ -200,31 +201,75 @@ nav ul.nav-links li a:hover {
   min-height: 100%;
   width: auto;
   height: auto;
-  z-index: -1;
+  z-index: 1;
   transform: translate(-50%, -50%);
+  --mask:
+    radial-gradient(37.14px at 50% calc(100% - 52.2px),#000 99%,#0000 101%) calc(50% - 58px) 0/116px 100%,
+    radial-gradient(37.14px at 50% calc(100% + 23.2px),#0000 99%,#000 101%) 50% calc(100% - 29px)/116px 100% repeat-x;
+  -webkit-mask: var(--mask);
+          mask: var(--mask);
 }
 
 
 /* catalog */
 
 .catalog {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: -50px;
-  height: 80vh;
+  display: grid;
+  grid-template-columns: repeat(4, 292px); /* Default: 4 fixed-width cards per row */
+  grid-gap: 6em; /* Space between cards */
+  padding: 75px 0; /* Padding around the catalog */
   background-color: var(--secondary-color);
-  margin-left: -115px;
+  justify-content: center; /* Center the grid within the container */
+  width: 100%;
+  margin-top: -60px;
+  box-sizing: border-box;
+}
 
-  --mask:
-    radial-gradient(37.14px at 50% 52.2px,#000 99%,#0000 101%) calc(50% - 58px) 0/116px 100%,
-    radial-gradient(37.14px at 50% -23.2px,#0000 99%,#000 101%) 50% 29px/116px 100% repeat-x;
-  -webkit-mask: var(--mask);
-          mask: var(--mask);
-     
+.card {
+  width: 292px; /* Fixed card width */
+  height: 400px; /* Fixed height */
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.card-container {
+  background-color: var(--secondary-text);
+}
+
+/* Switch to 2 cards per row on smaller screens */
+@media (max-width: 1600px) {
+  nav {
+    padding: 0 150px;
+  }
+
+  .catalog {
+    grid-template-columns: repeat(2, 292px); /* Exactly 2 fixed-width cards per row */
+    justify-content: center; /* Ensure grid stays centered */
+    grid-gap: 4em;
+  }
+}
+
+/* Optional: Switch to 1 card per row on very small screens */
+@media (max-width: 800px) {
+  nav {
+    padding: 0 50px;
+  }
+
+  .catalog {
+    grid-template-columns: repeat(1, 292px); /* 1 fixed-width card per row */
+    grid-gap: 4em;
+  }
 }
 
 
-/* moving div */
+
 .iso-marquee {
   padding: 1rem 0;
   font-size: 8vw;
