@@ -18,7 +18,7 @@
 }
 
 body {
-  height: 2000px;
+  height: auto;
 }
 
 /* Basic styles for the navbar */
@@ -229,19 +229,30 @@ nav ul.nav-links li a:hover {
 }
 
 .catalog h1 {
-  display: grid;
+  display: flex; /* Use flexbox for horizontal layout */
+  justify-content: space-between; /* Space between the h2 and span */
+  align-items: center; /* Vertically center align the items */
   margin-top: 1em;
   grid-column: 1 / -1; /* Make h1 span all columns */
   text-transform: uppercase;
   width: 100%;
-  font-size: 2.1em;
-  background-color: var(--primary-color);
+  font-size: 34px;
+  color: var(--hover-text);
+  font-weight: 800;
+  letter-spacing: 2px;
 }
+
+.catalog h1 span {
+  background-color: var(--hover-text);
+  height: 0.15em;
+  width: 76%; /* You can adjust the width as needed */
+  border-radius: 5px;
+}
+
 
 .card {
   width: 292px; /* Fixed card width */
   height: 430px; /* Fixed height */
-  background-color: #fff;
   box-shadow: 20px 20px 0px 0px rgb(72, 69, 139);
 -webkit-box-shadow: 20px 20px 0px 0px rgb(72, 69, 139);
 -moz-box-shadow: 20px 20px 0px 0px rgb(72, 69, 139);
@@ -268,6 +279,9 @@ nav ul.nav-links li a:hover {
   width: 100%;
   height: 50%;
   border-radius: inherit;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  background-color: var(--primary-color);
 }
 
 /* Switch to 2 cards per row on smaller screens */
@@ -280,6 +294,10 @@ nav ul.nav-links li a:hover {
     grid-template-columns: repeat(2, 292px); /* Exactly 2 fixed-width cards per row */
     justify-content: center; /* Ensure grid stays centered */
     grid-gap: 4em;
+  }
+
+  .catalog h1 span {
+    width: 50%; /* You can adjust the width as needed */
   }
 }
 
@@ -294,6 +312,15 @@ nav ul.nav-links li a:hover {
   .catalog {
     grid-template-columns: repeat(1, 292px); /* 1 fixed-width card per row */
     grid-gap: 4em;
+  }
+
+  .catalog h1 {
+    justify-content: center;
+  }
+
+  .catalog h1 span {
+    width: 0%; /* You can adjust the width as needed */
+    margin-left: 0;
   }
 }
 
