@@ -6,15 +6,19 @@
 }
 
 :root {
+  --nav-color:#aeaef2;
+
   --primary-color: #bebef4;
   --secondary-color: #6662ab;
   --tertiary-color: #39385e;
 
+  --light-bg: #e1e1f8;
+
   --hover-bg: #615e97;
   --hover-text: #fdd248;
 
-  --primary-text: #63569f;
-  --secondary-text: #eeebfa;
+  --primary-text: #4a4172;
+  --secondary-text: #e9defc;
 }
 
 body {
@@ -23,7 +27,7 @@ body {
 
 /* Basic styles for the navbar */
 nav {
-  background-color: var(--primary-color);
+  background-color: var(--nav-color);
   padding: 0 250px;
   position: sticky;
   top: 0;
@@ -31,6 +35,7 @@ nav {
   width: 100%;
   height: 140px;
   transition: transform 0.3s ease-in-out;
+
   --mask:
     radial-gradient(37.14px at 50% calc(100% - 52.2px),#000 99%,#0000 101%) calc(50% - 58px) 0/116px 100%,
     radial-gradient(37.14px at 50% calc(100% + 23.2px),#0000 99%,#000 101%) 50% calc(100% - 29px)/116px 100% repeat-x;
@@ -47,7 +52,6 @@ nav ul.nav-links {
   font-size: 1.2em;
 }
 
-/* Navigation Links */
 nav ul.nav-links li a {
   color: var(--primary-text);
   text-decoration: none;
@@ -55,13 +59,11 @@ nav ul.nav-links li a {
   text-transform: uppercase;
   font-weight: 600;
   transition: 400ms ease-in-out;
-  border-radius: 20px;
 }
 
 nav ul.nav-links li a:hover {
   background-color: var(--hover-bg);
   color: var(--hover-text);
-  border-radius: 20px;
 }
 
 .logo img {
@@ -69,13 +71,275 @@ nav ul.nav-links li a:hover {
 }
 
 
+.banner {
+  position: relative;
+  height: auto;
+  max-height: 85vh;
+  min-height: 28vh;
+  overflow: hidden;
+  margin-top: -45px;
+}
+
+#hero-video {
+  position: relative;
+  object-fit: cover;
+  left: 50%;
+  width: 100%;
+  max-height: 85vh;
+  min-height: 28vh;
+  height: auto;
+  z-index: 2;
+  transform: translate(-50%, 0);
+  --mask:
+    radial-gradient(37.14px at 50% calc(100% - 52.2px),#000 99%,#0000 101%) calc(50% - 58px) 0/116px 100%,
+    radial-gradient(37.14px at 50% calc(100% + 23.2px),#0000 99%,#000 101%) 50% calc(100% - 29px)/116px 100% repeat-x;
+  -webkit-mask: var(--mask);
+          mask: var(--mask);
+}
+
+.banner-content {
+  position: absolute;
+  z-index: 3;
+  right: 7.5%; /* Responsive right margin */
+  bottom: 25%; /* Adjust to scale with banner height */
+  width: auto;
+  text-align: end;
+  user-select: none;
+}
+
+.banner-content h1 {
+  font-size: clamp(2em, 5vw, 5em); /* Responsive scaling based on viewport width */
+  color: var(--secondary-text);
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 2px;
+  line-height: 1.05em;
+  font-style: oblique;
+}
+
+.banner-content h1:nth-last-child(2) {
+  color: transparent;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: var(--secondary-text);
+}
+
+.banner-content p {
+  font-size: clamp(1em, 2.5vw, 1.75em); /* Responsive scaling for paragraph text */
+  color: var(--secondary-text);
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin-top: 1em;
+}
+
+
+
+/* catalog */
+.catalog {
+  display: grid;
+  grid-template-rows: auto 1fr; /* Two rows: h1 on top, cards below */
+  grid-template-columns: repeat(4, 292px); /* Four fixed-width columns for cards */
+  grid-column-gap: 6em;
+  grid-row-gap: 3.5em;
+  padding: 75px 0;
+  background-color: var(--secondary-color);
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  margin-top: -3em; /* Default, no negative margin */
+  box-sizing: border-box;
+}
+
+.catalog h1 {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  margin-top: 1em;
+  grid-column: 1 / -1; /* Make h1 span all columns */
+  text-transform: uppercase;
+  width: 100%;
+  font-size: 34px;
+  color: var(--hover-text);
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.catalog h1 span {
+  background-color: var(--hover-text);
+  height: 0.15em;
+  width: 76%;
+  border-radius: 5px;
+}
+
+
+.card {
+  width: 292px; /* Fixed card width */
+  height: 430px; /* Fixed height */
+  box-shadow: 20px 20px 0px 0px rgb(72, 69, 139);
+-webkit-box-shadow: 20px 20px 0px 0px rgb(72, 69, 139);
+-moz-box-shadow: 20px 20px 0px 0px rgb(72, 69, 139);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: var(--primary-color);
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  background-color: var(--hover-text);
+}
+
+.card img {
+  width: 100%;
+  height: 292px;
+  object-fit: cover;
+  border-radius: inherit;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.card-container {
+  background-color: var(--secondary-text);
+  width: 100%;
+  height: 50%;
+  border-radius: inherit;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  padding: 1.1em 1.5em;
+  background-color: inherit;
+
+}
+
+.card-container h2 {
+  color: var(--tertiary-color);
+  text-transform: uppercase;
+  font-size: 1.3em;
+  margin-bottom: 0.3em;
+}
+
+.card-container p {
+  color: var(--tertiary-color);
+  font-size: 1em;
+  line-height: 1.4em;
+}
+
+.catalog h3 {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1 / -1; /* Make h1 span all columns */
+  margin: 0 auto;
+  font-size: 1.4em;
+  color: var(--hover-text);
+  transition: 0.3s ease-in-out;
+}
+
+.catalog h3 span {
+  background-color: var(--hover-text);
+  height: 0.15em;
+  width: 100%; 
+  border-radius: 5px;
+  margin-top: 0.2em;
+}
+
+.catalog h3:hover {
+  color: var(--secondary-text);
+}
+
+
+/* ISO Marquee */
+.iso-marquee {
+  padding: 1rem 0;
+  font-size: 8vw;
+  overflow: hidden;
+  background-color: var(--tertiary-color);
+}
+
+.iso-marquee--long {
+  font-size: 1em;
+}
+
+.iso-marquee span {
+  display: inline-block;
+  white-space: nowrap;
+  color: var(--secondary-text);
+  text-transform: uppercase;
+  letter-spacing: 2.6px;
+  font-weight: 600;
+  width: var(--tw);
+  text-shadow: var(--tw) 0 currentColor, calc(var(--tw) * 2) 0 currentColor,
+               calc(var(--tw) * 3) 0 currentColor, calc(var(--tw) * 4) 0 currentColor;
+  will-change: transform;
+  animation: iso-marquee var(--ad) linear infinite;
+  animation-play-state: play;
+}
+
+@keyframes iso-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+
+/* About */
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 0;
+  background-color: var(--light-bg);
+}
+
+
 
 /* Mobile responsiveness */
+@media (min-width: 800px) {
+  nav ul.nav-links li a {
+    border-radius: 15px;
+  }
+
+  .catalog .fa-chevron-left {
+    display: none;
+  }
+
+  .catalog .fa-chevron-right {
+    display: none;
+  }
+}
+
+
+/* Switch to 2 cards per row on smaller screens */
+@media (max-width: 1600px) {
+  nav {
+    padding: 0 150px;
+  }
+
+  .catalog {
+    grid-template-columns: repeat(2, 292px); /* Exactly 2 fixed-width cards per row */
+    justify-content: center; /* Ensure grid stays centered */
+    grid-gap: 4em;
+  }
+
+  .catalog h1 span {
+    width: 50%; /* You can adjust the width as needed */
+  }
+}
+
+@media (max-width: 1000px) {
+  nav {
+    padding: 0 80px;
+  }
+}
+
 @media (max-width: 800px) {
   ul.nav-links {
     display: flex;
     flex-direction: column;
-    background-color: var(--primary-color);
+    background-color: var(--nav-color);
     position: absolute;
     left: 0;
     width: 100%;
@@ -178,162 +442,16 @@ nav ul.nav-links li a:hover {
   .hamburger:hover span {
     background-color: var(--hover-text);
   }
-}
 
-
-
-
-
-
-/* banner */
-.banner {
-  position: relative;
-  height: auto;
-  max-height: 85vh;
-  overflow: hidden;
-  margin-top: -45px;
-}
-
-#hero-video {
-  position: relative;
-  object-fit: cover;
-  left: 50%;
-  width: 100%;
-  max-height: 85vh;
-  height: auto;
-  z-index: 2;
-  transform: translate(-50%, 0);
-  --mask:
-    radial-gradient(37.14px at 50% calc(100% - 52.2px),#000 99%,#0000 101%) calc(50% - 58px) 0/116px 100%,
-    radial-gradient(37.14px at 50% calc(100% + 23.2px),#0000 99%,#000 101%) 50% calc(100% - 29px)/116px 100% repeat-x;
-  -webkit-mask: var(--mask);
-          mask: var(--mask);
-}
-
-
-/* catalog */
-
-.catalog {
-  display: grid;
-  grid-template-rows: auto 1fr; /* Two rows: h1 on top, cards below */
-  grid-template-columns: repeat(4, 292px); /* Four fixed-width columns for cards */
-  grid-column-gap: 6em;
-  grid-row-gap: 3.5em; /* Space between cards */
-  padding: 75px 0; /* Padding around the catalog */
-  background-color: var(--secondary-color);
-  justify-content: center; /* Center the grid within the container */
-  width: 100%;
-  position: relative;
-  margin-top: -3em; /* Default, no negative margin */
-  box-sizing: border-box;
-}
-
-.catalog h1 {
-  display: flex; /* Use flexbox for horizontal layout */
-  justify-content: space-between; /* Space between the h2 and span */
-  align-items: center; /* Vertically center align the items */
-  margin-top: 1em;
-  grid-column: 1 / -1; /* Make h1 span all columns */
-  text-transform: uppercase;
-  width: 100%;
-  font-size: 34px;
-  color: var(--hover-text);
-  font-weight: 800;
-  letter-spacing: 2px;
-}
-
-.catalog h1 span {
-  background-color: var(--hover-text);
-  height: 0.15em;
-  width: 76%; /* You can adjust the width as needed */
-  border-radius: 5px;
-}
-
-
-.card {
-  width: 292px; /* Fixed card width */
-  height: 430px; /* Fixed height */
-  box-shadow: 20px 20px 0px 0px rgb(72, 69, 139);
--webkit-box-shadow: 20px 20px 0px 0px rgb(72, 69, 139);
--moz-box-shadow: 20px 20px 0px 0px rgb(72, 69, 139);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  border-radius: 8px;
-  box-sizing: border-box;
-  background-color: var(--primary-color);
-  transition: 0.3s ease-in-out;
-
-}
-
-.card:hover {
-  transform: scale(1.03);
-  background-color: var(--hover-text);
-}
-
-.card img {
-  width: 100%;
-  height: 292px;
-  object-fit: cover;
-  border-radius: inherit;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.card-container {
-  background-color: var(--secondary-text);
-  width: 100%;
-  height: 50%;
-  border-radius: inherit;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  padding: 1.1em 1.5em;
-  background-color: inherit;
-}
-
-.card-container h2 {
-  color: var(--tertiary-color);
-  text-transform: uppercase;
-  font-size: 1.3em;
-  margin-bottom: 0.3em;
-}
-
-.card-container p {
-  color: var(--tertiary-color);
-  font-size: 1em;
-  line-height: 1.4em;
-}
-
-/* Switch to 2 cards per row on smaller screens */
-@media (max-width: 1600px) {
-  nav {
-    padding: 0 150px;
-  }
-
-  .catalog {
-    grid-template-columns: repeat(2, 292px); /* Exactly 2 fixed-width cards per row */
-    justify-content: center; /* Ensure grid stays centered */
-    grid-gap: 4em;
-  }
-
-  .catalog h1 span {
-    width: 50%; /* You can adjust the width as needed */
-  }
-}
-
-@media (max-width: 1000px) {
-  nav {
-    padding: 0 80px;
-  }
-}
-
-/* Optional: Switch to 1 card per row on very small screens */
-@media (max-width: 800px) {
   .catalog {
     grid-template-columns: repeat(1, 292px); /* 1 fixed-width card per row */
     grid-gap: 4em;
+    padding: 50px 0; /* Padding around the catalog */
+
+  }
+
+  .extra {
+    display: none;
   }
 
   .catalog h1 {
@@ -344,50 +462,61 @@ nav ul.nav-links li a:hover {
     width: 0%; /* You can adjust the width as needed */
     margin-left: 0;
   }
+
+  .card {
+    width: 262px; /* Fixed card width */
+    height: 400px; /* Fixed height */
+    margin: 0 auto;
+  }
+
+  .card img {
+    height: 262px;
+  }
+
+  .card-container h2 {
+    font-size: 1.1em;
+    margin-bottom: 0.5em;
+  }
+  
+  .card-container p {
+    font-size: 0.9em;
+    line-height: 1.4em;
+  }
+
+  .catalog .fa-solid {
+    position: absolute;
+    z-index: 2;
+    top: 43%;
+    background-color: var(--primary-color);
+    padding: 0.6em;
+    border-radius: 4px;
+    color: var(--primary-text);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--primary-colort);
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+  }
+
+  .catalog .fa-solid:hover {
+    background-color: var(--hover-text);
+    color: var(--primary-text);
+  }
+
+  .catalog .fa-chevron-left {
+    left: 14%;
+  }
+
+  .catalog .fa-chevron-right {
+    right: 14%;
+  }
 }
 
+@media (max-width: 550px) {
+  .catalog .fa-chevron-left {
+    left: 7%;
+  }
 
-
-.iso-marquee {
-  padding: 1rem 0;
-  font-size: 8vw;
-  overflow: hidden;
-  background-color: var(--tertiary-color);
-}
-
-.iso-marquee--long {
-  font-size: 1em;
-}
-
-.iso-marquee span {
-  display: inline-block;
-  white-space: nowrap;
-  color: var(--secondary-text);
-  text-transform: uppercase;
-  letter-spacing: 2.6px;
-  font-weight: 600;
-  width: var(--tw);
-  text-shadow: var(--tw) 0 currentColor, calc(var(--tw) * 2) 0 currentColor,
-               calc(var(--tw) * 3) 0 currentColor, calc(var(--tw) * 4) 0 currentColor;
-  will-change: transform;
-  animation: iso-marquee var(--ad) linear infinite;
-  animation-play-state: play;
-}
-
-@keyframes iso-marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
-}
-
-/* Reduce motion for users with motion sensitivity */
-@media (prefers-reduced-motion: reduce) {
-  .iso-marquee span {
-      animation: none;
-      text-shadow: none;
-      width: auto;
-      display: block;
-      line-height: 1.5;
-      text-align: center;
-      white-space: normal;
+  .catalog .fa-chevron-right {
+    right: 7%;
   }
 }
